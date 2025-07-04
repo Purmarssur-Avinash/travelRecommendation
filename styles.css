@@ -1,0 +1,365 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.travel-background {
+  background-image: url('images/travel-background.jpg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px;
+  color: white; /* Optional: makes text readable */
+  position: relative;
+}
+
+
+/* Navbar styles */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #031827;
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.nav-left a {
+  color: white;
+  margin: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.nav-left a:hover {
+  text-decoration: underline;
+}
+
+nav a.active {
+  border-bottom: 2px solid #f1c40f;
+  font-weight: bold;
+}
+
+.search-bar input[type="text"] {
+  width: 300px; /* Adjust width as you like, e.g., 400px for longer */
+  max-width: 100%; /* Ensures it doesn’t overflow on small screens */
+  padding: 8px 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+/* Home page header */
+.home-header {
+  height: 90vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.intro {
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent overlay */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+.intro h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #f1c40f;
+}
+
+.book-now-btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1em;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #2c80b4;
+}
+
+/* About Us Page Styles */
+.about-background {
+  background-image: url('images/travel-background.jpg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px;
+  color: white; /* Optional: Ensure text is visible */
+}
+
+.about-background::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.555); /* dark overlay */
+  z-index: -1;
+}
+
+.about-section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.about-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  border: 2px;
+}
+
+.team-member {
+  background-color: #0101082a;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px;
+  width: 220px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.836);
+}
+
+.team-member h3 {
+  margin: 10px 0 5px;
+  font-size: 1.3em;
+}
+
+.team-member p {
+  font-size: 1em;
+  color: #555;
+}
+
+/* Role buttons */
+.role-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #345bdb;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95em;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.role-button:hover {
+  background-color: #2c80b4;
+}
+
+/* Recommendations Section */
+.recommendations-section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px 40px;
+}
+
+/* Each country container */
+.country {
+  margin-bottom: 40px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 20px;
+}
+
+/* Country name */
+.country > h2 {
+  font-size: 2em;
+  color: #2c80b4;
+  margin-bottom: 15px;
+}
+
+/* City container inside country */
+.city {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* space between text and image */
+  background-color: #0a0101c7;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  flex-direction: row; /* horizontal layout */
+}
+
+.city-content {
+  flex: 1 1 300px; /* take available space, minimum 300px */
+}
+
+.city img {
+  max-width: 200px; /* fixed width */
+  height: auto;
+  border-radius: 8px;
+  margin: 10px; 
+  align-self: center;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.visit-btn {
+  
+  margin: 15px;
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+.visit-btn:hover {
+  background-color: #27ae60;
+}
+
+/* Contact Us Page Styles */
+.contact-background {
+  background-image: url('images/travel-background.jpg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px;
+  color: white; /* Optional: makes text readable */
+  position: relative;
+}
+
+.contact-background::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.contact-background > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.contact-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2c80b4;
+}

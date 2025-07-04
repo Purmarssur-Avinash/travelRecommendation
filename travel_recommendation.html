@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TravelBloom - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="travel-background">
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left">
+      <div class="logo">✈️ TravelBloom</div>
+      <a href="travel_recommendation.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-right search-bar">
+      <input type="text" id="searchInput" placeholder="Enter a destination or keyword" />
+      <button onclick="search()">Search</button>
+      <button onclick="resetSearch()">Reset</button>
+      <button onclick="clearResults()">Clear</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <header class="home-header">
+    <div class="intro">
+      <h1>Welcome to TravelBloom</h1>
+      <p>Your ultimate companion for discovering breathtaking destinations around the world. Find personalized travel recommendations, explore cultural gems, and plan your perfect adventure.</p>
+      <a href="#recommendations" class="book-now-btn">Book Now</a>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Recommendations container -->
+  <section id="recommendations" class="recommendations-section">
+    <!-- Dynamic travel data will appear here -->
+  </section>
+
+  
+
+  <script>
+    // Search and Reset functions (can be improved)
+    function search() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const container = document.getElementById('recommendations');
+      if (!query) {
+        alert('Please enter a destination or keyword to search.');
+        return;
+      }
+
+      // Filter displayed countries and cities
+      const items = container.querySelectorAll('.country, .city');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    }
+
+    function resetSearch() {
+      document.getElementById('searchInput').value = '';
+      const container = document.getElementById('recommendations');
+      const items = container.querySelectorAll('.country, .city');
+      items.forEach(item => {
+        item.style.display = '';
+      });
+    }
+  </script>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+<script src="travel_recommendation.js"></script>
+</body>
+</html>
