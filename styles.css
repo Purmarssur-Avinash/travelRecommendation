@@ -238,40 +238,45 @@ nav a.active {
   margin-bottom: 15px;
 }
 
-/* City container inside country */
-.city {
+/* Common container styling for city, temple, and beach */
+.city, .temple, .beach {
   display: flex;
   align-items: flex-start;
-  gap: 20px; /* space between text and image */
+  gap: 20px;
   background-color: #0a0101c7;
   margin: 20px;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
-  flex-direction: row; /* horizontal layout */
+  flex-direction: row;
 }
 
+/* Shared content wrapper */
 .city-content {
-  flex: 1 1 300px; /* take available space, minimum 300px */
+  flex: 1 1 300px;
 }
 
-.city img {
-  max-width: 200px; /* fixed width */
+/* Image styles for all */
+.city img,
+.temple img,
+.beach img {
+  max-width: 200px;
   height: auto;
   border-radius: 8px;
-  margin: 10px; 
+  margin: 10px;
   align-self: center;
 }
 
+/* Centered button wrapper */
 .button-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
+/* Visit button style */
 .visit-btn {
-  
   margin: 15px;
   padding: 8px 16px;
   background-color: #2ecc71;
@@ -287,6 +292,7 @@ nav a.active {
 .visit-btn:hover {
   background-color: #27ae60;
 }
+
 
 /* Contact Us Page Styles */
 .contact-background {
