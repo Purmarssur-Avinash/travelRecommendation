@@ -196,58 +196,55 @@ function displayRecommendations(data) {
   });
 
   // === Temples ===
-  if (data.temples && data.temples.length > 0) {
-    const templeHeader = document.createElement('h2');
-    templeHeader.textContent = 'Temples';
-    container.appendChild(templeHeader);
+      data.temples.forEach(temple => {
+          const templeDiv = document.createElement('div');
+          templeDiv.classList.add('temple');
 
-    data.temples.forEach(temple => {
-      const templeDiv = document.createElement('div');
-      templeDiv.classList.add('city');
+          templeDiv.innerHTML = `
+            <h3>${temple.name}</h3>
+            <p>${temple.description}</p>
+            ${temple.imageUrl ? `<img src="images/${temple.imageUrl}" alt="${temple.name}" style="width: 200px;">` : ''}
+            <div class="button-wrapper"><a href="#" class="visit-btn">Visit</a></div>
+          `;
 
-      templeDiv.innerHTML = `
-        <h3>${temple.name}</h3>
-        <p>${temple.description}</p>
-        ${temple.imageUrl ? `<img src="images/${temple.imageUrl}" alt="${temple.name}" style="width: 200px;">` : ''}
-        <div class="button-wrapper"><a href="#" class="visit-btn">Visit</a></div>
-      `;  
-        
-
-      container.appendChild(templeDiv);
+          container.appendChild(templeDiv);
     });
-  }
+
 
   // === Beaches ===
-  if (data.beaches && data.beaches.length > 0) {
-    const beachHeader = document.createElement('h2');
-    beachHeader.textContent = 'Beaches';
-    container.appendChild(beachHeader);
+      data.beaches.forEach(beach => {
+            const beachDiv = document.createElement('div');
+            beachDiv.classList.add('beach');
 
-    data.beaches.forEach(beach => {
-      const beachDiv = document.createElement('div');
-      beachDiv.classList.add('city');
+            beachDiv.innerHTML = `
+              <h3>${beach.name}</h3>
+              <p>${beach.description}</p>
+              ${beach.imageUrl ? `<img src="images/${beach.imageUrl}" alt="${beach.name}" style="width: 200px;">` : ''}
+              <div class="button-wrapper"><a href="#" class="visit-btn">Visit</a></div>
+            `;
 
-      beachDiv.innerHTML = `
-          <h3>${beach.name}</h3>
-          <p>${beach.description}</p>
-          ${beach.imageUrl ? `<img src="images/${beach.imageUrl}" alt="${beach.name}" style="width: 200px;">` : ''}
-          <div class="button-wrapper"><a href="#" class="visit-btn">Visit</a></div>
-        `;
-      
+            container.appendChild(beachDiv);
+          });
 
-      container.appendChild(beachDiv);
-    });
-  }
-
-  // === No Results ===
-  if (
-    data.countries.length === 0 &&
-    data.temples.length === 0 &&
-    data.beaches.length === 0
-  ) {
-    container.innerHTML = '<p>No matching results found.</p>';
-  }
-}
+            // === No Results ===
+            if (
+              data.countries.length === 0 &&
+              data.temples.length === 0 &&
+              data.beaches.length === 0
+            ) {
+              container.innerHTML = '<p>No matching results found.</p>';
+            }
+      }
 
 // Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', loadTravelRecommendations);
+document.addEventListener('DOMContentLoaded', () => {
+  loadTravelRecommendations();
+
+  // Enable Enter key to trigger search
+  document.getElementById('searchInput').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      search();
+    }
+  });
+});

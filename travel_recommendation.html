@@ -55,12 +55,13 @@
         return;
       }
 
-      // Filter displayed countries and cities
-      const items = container.querySelectorAll('.country, .city');
+    // Filter displayed countries, cities, temples, and beaches
+      const items = container.querySelectorAll('.country, .city, .temple, .beach');
       items.forEach(item => {
         const text = item.textContent.toLowerCase();
         item.style.display = text.includes(query) ? '' : 'none';
-      });
+    });
+
     }
 
     function resetSearch() {
