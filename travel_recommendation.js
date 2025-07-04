@@ -196,44 +196,88 @@ function displayRecommendations(data) {
   });
 
   // === Temples ===
-      data.temples.forEach(temple => {
-          const templeDiv = document.createElement('div');
-          templeDiv.classList.add('temple');
+data.temples.forEach(temple => {
+  const templeDiv = document.createElement('div');
+  templeDiv.classList.add('temple');
 
-          templeDiv.innerHTML = `
-            <h3>${temple.name}</h3>
-            <p>${temple.description}</p>
-            ${temple.imageUrl ? `<img src="images/${temple.imageUrl}" alt="${temple.name}" style="width: 200px;">` : ''}
-            <div class="button-wrapper"><a href="#" class="visit-btn">Visit</a></div>
-          `;
+  // Create content wrapper
+  const contentDiv = document.createElement('div');
+  contentDiv.classList.add('city-content');
 
-          container.appendChild(templeDiv);
-    });
+  const templeName = document.createElement('h3');
+  templeName.textContent = temple.name;
+
+  const templeDesc = document.createElement('p');
+  templeDesc.textContent = temple.description;
+
+  contentDiv.appendChild(templeName);
+  contentDiv.appendChild(templeDesc);
+
+  templeDiv.appendChild(contentDiv);
+
+  // Add image if available
+  if (temple.imageUrl) {
+    const img = document.createElement('img');
+    img.src = 'images/' + temple.imageUrl;
+    img.alt = temple.name;
+    templeDiv.appendChild(img);
+  }
+
+  // Visit button
+  const visitButton = document.createElement('a');
+  visitButton.textContent = 'Visit';
+  visitButton.href = '#';
+  visitButton.className = 'visit-btn';
+
+  const buttonWrapper = document.createElement('div');
+  buttonWrapper.classList.add('button-wrapper');
+  buttonWrapper.appendChild(visitButton);
+
+  templeDiv.appendChild(buttonWrapper);
+  container.appendChild(templeDiv);
+});
+
 
 
   // === Beaches ===
-      data.beaches.forEach(beach => {
-            const beachDiv = document.createElement('div');
-            beachDiv.classList.add('beach');
+ data.beaches.forEach(beach => {
+  const beachDiv = document.createElement('div');
+  beachDiv.classList.add('beach');
 
-            beachDiv.innerHTML = `
-              <h3>${beach.name}</h3>
-              <p>${beach.description}</p>
-              ${beach.imageUrl ? `<img src="images/${beach.imageUrl}" alt="${beach.name}" style="width: 200px;">` : ''}
-              <div class="button-wrapper"><a href="#" class="visit-btn">Visit</a></div>
-            `;
+  const contentDiv = document.createElement('div');
+  contentDiv.classList.add('city-content');
 
-            container.appendChild(beachDiv);
-          });
+  const beachName = document.createElement('h3');
+  beachName.textContent = beach.name;
 
-            // === No Results ===
-            if (
-              data.countries.length === 0 &&
-              data.temples.length === 0 &&
-              data.beaches.length === 0
-            ) {
-              container.innerHTML = '<p>No matching results found.</p>';
-            }
+  const beachDesc = document.createElement('p');
+  beachDesc.textContent = beach.description;
+
+  contentDiv.appendChild(beachName);
+  contentDiv.appendChild(beachDesc);
+
+  beachDiv.appendChild(contentDiv);
+
+  if (beach.imageUrl) {
+    const img = document.createElement('img');
+    img.src = 'images/' + beach.imageUrl;
+    img.alt = beach.name;
+    beachDiv.appendChild(img);
+  }
+
+  const visitButton = document.createElement('a');
+  visitButton.textContent = 'Visit';
+  visitButton.href = '#';
+  visitButton.className = 'visit-btn';
+
+  const buttonWrapper = document.createElement('div');
+  buttonWrapper.classList.add('button-wrapper');
+  buttonWrapper.appendChild(visitButton);
+
+  beachDiv.appendChild(buttonWrapper);
+  container.appendChild(beachDiv);
+});
+
       }
 
 // Initialize on DOM ready
